@@ -6,7 +6,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
-#from qronk_interfaces.msg import JointVelocity
+from qronk_interfaces.msg import JointVelocity
 from board import SCL, SDA
 import busio
 from adafruit_motor import servo
