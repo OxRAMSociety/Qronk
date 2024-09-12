@@ -1,4 +1,4 @@
-# Dependencies
+Dependencies
 
 You may need to install the following list of dependencies before you run our code.
 
@@ -9,4 +9,11 @@ Please contact [Jihwan Ben Shin](mailto:jihwan.shin@sjc.ox.ac.uk) or [Jin Rhee](
 ```bash
 sudo apt install ros-humble-xacro
 sudo apt install ros-humble-joint-state-publisher-gui
+```
+
+## Install package dependencies
+Run the init script to rosdep install dependencies for all packages
+```bash
+cd $YOUR_WORKSPACE/src/Qronk
+./init.bash
 ```
