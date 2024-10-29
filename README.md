@@ -1,6 +1,6 @@
 # Qronk
 
-A quadruped robot project by a group of Oxford undergraduates.
+A quadruped robot project by a group of Oxford undergraduates. Work in progress.
 
 ![qronk_cad](documents/media/qronk_cad.png)
 
