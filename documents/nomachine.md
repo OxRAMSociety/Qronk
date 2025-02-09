@@ -36,10 +36,18 @@ Then install NoMachine by:
 ```
 $ sudo /usr/NX/nxserver --install
 ``` 
+You need to set the server as active:
+```
+$ sudo /usr/NX/nxserver --start
+```
 You should now have NoMachine installed on both computers.
 
 ## 3. Connect to target machine from host
-To connect, you need a user account on the target machinen as well as the ip address of the machine. Unless you have created a user, the default user will be named 'ubuntu', with the password as set above.
+You need three things to connect to the target machine's GUI:
+1. A user account on the target machine
+Unless you have created a user, the default user will be named 'ubuntu', with the password as set above.
+
+2. The ip address of the target machine
 You can check the ip address using the command 'ifconfig':
 ```
 # Make sure you're on your VM's shell!
@@ -49,4 +57,14 @@ enp0s1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 	...
 ```
 Copy the ip-address down.
+
+3. A window manager on your target machine
+GNOME is a default window manager. Install by:
+```
+$ sudo apt install ubuntu-gnome-desktop
+```
+
+You should now be able to connect. From your host computer, open NoMachine and remotely connect by following the rest of the tutorial at:
+https://www.nomachine.com/getting-started-with-nomachine
+
 
