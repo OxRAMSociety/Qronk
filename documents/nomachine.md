@@ -23,10 +23,17 @@ $ multipass shell [your-instance-name]
 You should be on your VM's shell. You can download nomachine using the wget command:
 ```
 $ cd /usr
-$ wget [download-url-link]
+$ sudo wget [download-url-link]
 ```
 
-The link https://download.nomachine.com/download/8.16/Linux/nomachine_8.16.1_1_i686.tar.gz should work.
+!!! Make sure you download the version that fits your CPU architecture. !!!
+You can check your architecture with the command:
+```
+$ arch
+> aarch64
+```
+Search for your suitable OS and architecture from https://downloads.nomachine.com
+
 Download the package, and unzip with 
 ```
 $ sudo tar zxvf [the-package-name]
