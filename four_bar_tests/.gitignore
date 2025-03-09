@@ -1,0 +1,4 @@
+__pycache__
+*.Identifier
+URDF_Exporter/.env
+URDF_Exporter/.vscode/

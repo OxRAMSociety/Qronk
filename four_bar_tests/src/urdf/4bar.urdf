@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<!--16cra40 2025
+4 Bar Linkage test using mimics-->
+
+<robot name="4-bar">
+
+<!--Material Properties-->
+
+  <material name="red">
+      <color rgba="0.8 0 0 1"/>
+    </material>
+
+  <material name="green">
+    <color rgba="0 0.8 0 1"/>
+  </material>
+
+  <material name="blue">
+      <color rgba="0 0 0.8 1"/>
+    </material>
+
+  <material name="yellow">
+      <color rgba="0.8 0.8 0 1"/>
+    </material>
+
+<!--Member Definitions-->
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+          <mesh filename="package://four_bar_tests/meshes/4-bar/Bar-0.stl"
+              scale="1 1 1" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <material name="red" />
+    </visual>
+  </link>
+
+  <link name="Bar-1">
+    <visual>
+      <geometry>
+          <mesh filename="package://four_bar_tests/meshes/4-bar/Bar-1.stl"
+              scale="1 1 1" />
+      </geometry>
+      <origin xyz="0 0 1" rpy="0 0 0" />
+      <material name="yellow" />
+    </visual>
+  </link>
+
+  <link name="Bar-2">
+    <visual>
+      <geometry>
+          <mesh filename="package://four_bar_tests/meshes/4-bar/Bar-2.stl"
+              scale="1 1 1" />
+      </geometry>
+      <origin xyz="0 0 1" rpy="0 0 0" />
+      <material name="blue" />
+    </visual>
+  </link>
+
+  <link name="Bar-3">
+    <visual>
+      <geometry>
+          <mesh filename="package://four_bar_tests/meshes/4-bar/Bar-0.stl"
+              scale="1 1 1" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <material name="green" />
+    </visual>
+  </link>
+
+<!--Joint Defintions-->
+
+  <joint name="A" type="revolute">
+    <parent link="base_link"/>
+    <child link="Bar-1"/>
+    <origin xyz="0 0 0"/>
+     <axis xyz="0 0 1" />
+    <limit lower="${-pi}" upper="${pi}" effort="100" velocity="100" />
+  </joint>
+
+  <joint name="B" type="revolute">
+    <parent link="Bar-1"/>
+    <child link="Bar-3"/>
+    <origin xyz="0 20 0"/>
+     <axis xyz="0 0 1" />
+    <limit lower="${-pi}" upper="${pi}" effort="100" velocity="100" />
+    <mimic joint="A" multiplier="-1" offset ="0"/>
+  </joint>
+
+  <joint name="C" type="revolute">
+    <parent link="base_link"/>
+    <child link="Bar-2"/>
+    <origin xyz="50 0 0"/>
+     <axis xyz="0 0 1" />
+    <limit lower="${-pi}" upper="${pi}" effort="100" velocity="100" />
+    <mimic joint="A" multiplier="1" offset ="0"/>
+  </joint>
+
+</robot>

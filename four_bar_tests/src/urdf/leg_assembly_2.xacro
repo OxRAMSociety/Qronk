@@ -1,0 +1,141 @@
+<?xml version="1.0" ?>
+<robot name="leg_assembly_2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find four_bar_tests)/urdf/materials.xacro" />
+<xacro:include filename="$(find four_bar_tests)/urdf/leg_assembly_2.trans" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="4.523455546970336e-18 -4.634477849432853e-18 0.0005000000000000002" rpy="0 0 0"/>
+    <mass value="0.015413438956674918"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="5e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Outer_Mid_Leg_v5_1">
+  <inertial>
+    <origin xyz="-0.02234829331760629 -3.06642734856997e-09 0.006518957773930485" rpy="0 0 0"/>
+    <mass value="0.06544926542663207"/>
+    <inertia ixx="2e-06" iyy="2.8e-05" izz="2.8e-05" ixy="0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.0 -0.001" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/Outer_Mid_Leg_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.0 -0.001" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/Outer_Mid_Leg_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lower_Leg_v18_1">
+  <inertial>
+    <origin xyz="-1.0592182686508522e-10 0.011607214191396622 0.008502681783893731" rpy="0 0 0"/>
+    <mass value="0.11490639183279938"/>
+    <inertia ixx="9.1e-05" iyy="4e-06" izz="9e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 -0.0 -0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/Lower_Leg_v18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 -0.0 -0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/Lower_Leg_v18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Inner_Mid_Leg_v8_1">
+  <inertial>
+    <origin xyz="0.029909480487406923 -1.1378867292854977e-10 -0.004510560598069528" rpy="0 0 0"/>
+    <mass value="0.06538664389210237"/>
+    <inertia ixx="2e-06" iyy="2.9e-05" izz="3e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 0.031 -0.027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/Inner_Mid_Leg_v8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 0.031 -0.027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/Inner_Mid_Leg_v8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Outer_Upper_Leg_v4_1">
+  <inertial>
+    <origin xyz="-3.466291102067572e-08 0.021436478959040377 0.00771780764034689" rpy="0 0 0"/>
+    <mass value="0.04496433217077165"/>
+    <inertia ixx="7e-06" iyy="1e-06" izz="7e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.031 -0.027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/Outer_Upper_Leg_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.031 -0.027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://four_bar_tests/meshes/Outer_Upper_Leg_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="A" type="continuous">
+  <origin xyz="0.0 0.0 0.001" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Outer_Mid_Leg_v5_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="B" type="continuous">
+  <origin xyz="-0.06 0.0 0.013" rpy="0 0 0"/>
+  <parent link="Outer_Mid_Leg_v5_1"/>
+  <child link="Lower_Leg_v18_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="C" type="continuous">
+  <origin xyz="0.0 -0.031 0.013" rpy="0 0 0"/>
+  <parent link="Lower_Leg_v18_1"/>
+  <child link="Inner_Mid_Leg_v8_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+  <mimic joint="B" multiplier="1" offset ="0"/>
+</joint>
+
+<joint name="D" type="continuous">
+  <origin xyz="0.06 0.0 0.0" rpy="0 0 0"/>
+  <parent link="Inner_Mid_Leg_v8_1"/>
+  <child link="Outer_Upper_Leg_v4_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <mimic joint="B" multiplier="1" offset ="0"/>
+</joint>
+
+</robot>
