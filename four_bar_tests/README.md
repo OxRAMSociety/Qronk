@@ -33,7 +33,7 @@ Export Fusion models to URDF using the [fusion2urdf](https://github.com/16cra40/
 * ~~Rotate LEG_ASSEMBLY1 to be flat~~
 * ~~Convert from XACRO to URDF on launch~~
 * ~~Independent launch from urdf_launch~~
-* Merge with main QRONK github
+* ~~Merge with main QRONK github~~
 * Import into Gazebo
 * Test on ROS2 Jazzy
-* Modify the python script - package name
+* ~~Modify the python script - package name~~
