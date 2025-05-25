@@ -1,6 +1,13 @@
 # Qronk
 
-A quadruped robot project by a group of Oxford undergraduates. Work in progress.
+A quadruped robot project by a group of Oxford undergraduates. This branch (`v1-humble`) is for the initial version of the robot with:
+
+- Ubuntu 22.04 LTS
+- ROS2 Humble
+- PWM Servo Control
+- Pulley Belt Driven Lower-Legs
+
+Please use the `v2-jazzy` branch for the latest version of the robot. 
 
 ![qronk_cad](documents/media/qronk_cad.png)
 
