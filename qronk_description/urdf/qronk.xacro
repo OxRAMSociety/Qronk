@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="Qronk" params="parent:='world'">
+
+        <!-- Parent (Depending on Program) -->
+        <link name="${parent}" />
+        <joint name="${parent}_joint" type="fixed">
+            <parent link="${parent}" />
+            <child link="chassis" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+
+        <!-- Chassis -->
+        <link name="chassis" />
+
+        <!-- Legs -->
+        <xacro:include filename="$(find qronk_description)/urdf/leg.xacro"/>
+        <xacro:Leg prefix="FRONT_RIGHT" />
+
+        <!-- ROS2 Control Tags -->
+        <xacro:include filename="$(find qronk_description)/urdf/qronk.ros2_control.xacro"/>
+        <xacro:Qronk_ros2_control prefix="FRONT_RIGHT"/>
+
+        <!-- Gazebo Tags -->
+        <xacro:include filename="$(find qronk_description)/urdf/qronk.gazebo.xacro"/>
+        <xacro:Qronk_gazebo/>
+
+    </xacro:macro>
+</robot>

@@ -1,19 +1,7 @@
 <?xml version="1.0"?>
 <robot name="qronk" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <link name="base_link" />
-
-    <xacro:include filename="common_properties.xacro" />
-
-    <xacro:include filename="chassis.xacro" />
-    
-    <xacro:include filename="leg_FR.xacro" />
-    <xacro:include filename="leg_FL.xacro" />
-    <xacro:include filename="leg_BR.xacro" />
-    <xacro:include filename="leg_BL.xacro" />
-
-    <xacro:include filename="qronk_gazebo.xacro" />
-
-    <!-- <xacro:include filename="imu.xacro" /> -->
+    <xacro:include filename="$(find qronk_description)/urdf/qronk.xacro"/>
+    <xacro:Qronk parent="world"/>
 
 </robot>

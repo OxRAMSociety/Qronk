@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="Qronk_ros2_control" params="prefix">
+
+  </xacro:macro>
+</robot>
