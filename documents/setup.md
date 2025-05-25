@@ -6,14 +6,14 @@ Please contact [Jihwan Ben Shin](mailto:jihwan.shin@sjc.ox.ac.uk) or [Jin Rhee](
 
 Follow the guides for [Windows](ubuntu_windows.md) or [Mac](ubuntu_mac.md) to install Ubuntu virtual machine and Visual Studio Code for your computer.
 
-## 2. Install ROS2 Humble
+## 2. Install ROS2 Jazzy
 
-For our project, we will be using ROS2 Humble as our main framework to move our robot. Install ROS2 Humble following [Open Robotics' Documentation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) in **your Ubuntu virtual machine, not your local Windows/Mac machine**.
+For our project, we will be using ROS2 Jazzy as our main framework to move our robot. Install ROS2 Jazzy following [Open Robotics' Documentation](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html) in **your Ubuntu virtual machine, not your local Windows/Mac machine**.
 
 In the step "Install ROS 2 packages", you will be given 3 options: Desktop Install, ROS-Base install, and Development tools. Please choose the Desktop version with the following line of code for full access to our project.
 
 ```bash
-sudo apt install ros-humble-desktop
+sudo apt install ros-jazzy-desktop
 ```
 
 ### 2.1. Sourcing the setup script
@@ -21,13 +21,13 @@ sudo apt install ros-humble-desktop
 To use ROS2, you will have to source the setup script using the following line of code each time you open a new terminal session.
 
 ```bash
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash
 ```
 
 If you want to do this automatically, add the line of code above to `.bashrc` in your home directory. You can easily do so by using the following line of code.
 
 ```bash
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 ```
 
 ### 2.2. Install colcon
@@ -38,11 +38,11 @@ In the next step, you will have to use a tool called "colcon" to build packages 
 sudo apt install python3-colcon-common-extensions
 ```
 
-You can also follow [Open Robotics' Documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html) to learn more about colcon.
+You can also follow [Open Robotics' Documentation](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html) to learn more about colcon.
 
 ### 2.3. Learning more about ROS2
 
-You can learn more about ROS2 by following [ROS2 Humble tutorials](https://docs.ros.org/en/humble/Tutorials.html). You can also search for more resources online, but do note that some functionalities may vary for different versions of ROS2.
+You can learn more about ROS2 by following [ROS2 Jazzy tutorials](https://docs.ros.org/en/jazzy/Tutorials.html). You can also search for more resources online, but do note that some functionalities may vary for different versions of ROS2.
 
 ## 3. Download Qronk workspace
 

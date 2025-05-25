@@ -4,17 +4,15 @@ You will have to install Ubuntu on your system in order to run our code. Please 
 
 Please contact [Jihwan Ben Shin](mailto:jihwan.shin@sjc.ox.ac.uk) if you have any questions.
 
-## 1. Ubuntu 22.04
+## 1. Ubuntu 24.01
 
 ### 1.1. Installation
 
-Download Ubuntu 22.04 on your computer using WSL2, following [Ubuntu's tutorial](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview) until step 4, while making sure you choose **Ubuntu 22.04** from the Microsoft Store.
-
-![ubuntu_store](media/ubuntu_store.png)
+Download Ubuntu 24.01 on your computer using WSL2, following [Ubuntu's tutorial](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview) until step 4, while making sure you choose **Ubuntu 24.01** from the Microsoft Store.
 
 ### 1.2. Usage
 
-Ubuntu 22.04 is a Linux system which uses a language named "bash" on the command line. We recommend that you learn some of the basic commands if you are not familiar. 
+Ubuntu 24.01 is a Linux system which uses a language named "bash" on the command line. We recommend that you learn some of the basic commands if you are not familiar. 
 
 Follow [Lorenz Frank's tutorial](https://medium.com/geekculture/basic-bash-commands-c54933183c89) to learn how to navigate within the command line interface. 
 

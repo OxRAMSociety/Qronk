@@ -10,4 +10,8 @@ Follow [setup.md](documents/setup.md) to get started with using our code.
 
 ## Contact Us
 
-Please contact [Jihwan Ben Shin](mailto:jihwan.shin@sjc.ox.ac.uk) or [Jin Rhee](mailto:jin.rhee@sjc.ox.ac.uk) if you have any questions.
+Please contact:
+
+- [Jihwan Ben Shin](mailto:jihwan.shin@sjc.ox.ac.uk)
+- [Jin Rhee](mailto:jin.rhee@sjc.ox.ac.uk)
+- [Zak Crane-Whatmore](mailto:zak.crane-whatmore@some.ox.ac.uk)

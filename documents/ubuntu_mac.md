@@ -1,5 +1,7 @@
 # Ubuntu Virtual Machine (Mac)
 
+NOTE: PLEASE USE UBUNTU 24.01 INSTEAD FOR THE LATEST VERSION OF OUR PROJECT.
+
 You will have to install Ubuntu on your system in order to run our code. Please follow this guide to install Ubuntu virtual machine on your Mac using Multipass.
 
 Please contact [Jin Rhee](mailto:jin.rhee@sjc.ox.ac.uk) if you have any questions.
