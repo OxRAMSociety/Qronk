@@ -1,0 +1,141 @@
+<?xml version="1.0" ?>
+<robot name="new_leg" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find qronk_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find qronk_description)/urdf/new_leg.trans" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="2.8303654344169608e-18 -3.5112443987378646e-18 0.0009999999999999994" rpy="0 0 0"/>
+    <mass value="0.030826877913349836"/>
+    <inertia ixx="5e-06" iyy="5e-06" izz="1e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="SHORT_DRIVER_v3_1">
+  <inertial>
+    <origin xyz="-0.010305705894611515 -2.9305481460149227e-08 0.0025002023088448897" rpy="0 0 0"/>
+    <mass value="0.022856300175182507"/>
+    <inertia ixx="1e-06" iyy="3e-06" izz="4e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.0 -0.002" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/SHORT_DRIVER_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.0 -0.002" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/SHORT_DRIVER_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="INNER_BAR_v4_1">
+  <inertial>
+    <origin xyz="1.3904472992456313e-05 -0.03011917326831209 0.002994933185944219" rpy="0 0 0"/>
+    <mass value="0.03939438714183392"/>
+    <inertia ixx="1.7e-05" iyy="1e-06" izz="1.8e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.031 -0.0 -0.007" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/INNER_BAR_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.031 -0.0 -0.007" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/INNER_BAR_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="OUTPUT_LINK_FLIPPED_v5_1">
+  <inertial>
+    <origin xyz="-0.008955824948408651 -7.878862770538397e-10 -0.004166018664742253" rpy="0 0 0"/>
+    <mass value="0.10139203707445235"/>
+    <inertia ixx="4e-06" iyy="8.7e-05" izz="8.6e-05" ixy="-0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.031 0.06 -0.013" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/OUTPUT_LINK_FLIPPED_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.031 0.06 -0.013" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/OUTPUT_LINK_FLIPPED_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LONG_DRIVER_v2_1">
+  <inertial>
+    <origin xyz="-2.401507955559646e-09 0.03510091295216669 0.002516077656327359" rpy="0 0 0"/>
+    <mass value="0.03753259323789989"/>
+    <inertia ixx="1.5e-05" iyy="1e-06" izz="1.6e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.06 -0.017" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/LONG_DRIVER_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.06 -0.017" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://qronk_description/meshes/LONG_DRIVER_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="A" type="continuous">
+  <origin xyz="0.0 0.0 0.002" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="SHORT_DRIVER_v3_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="B" type="continuous">
+  <origin xyz="-0.031 0.0 0.005" rpy="0 0 0"/>
+  <parent link="SHORT_DRIVER_v3_1"/>
+  <child link="INNER_BAR_v4_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="C" type="continuous">
+  <origin xyz="0.0 -0.06 0.006" rpy="0 0 0"/>
+  <parent link="INNER_BAR_v4_1"/>
+  <child link="OUTPUT_LINK_FLIPPED_v5_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <mimic joint="B" multiplier="-1" offset ="0"/>
+</joint>
+
+<joint name="D" type="continuous">
+  <origin xyz="0.031 0.0 0.004" rpy="0 0 0"/>
+  <parent link="OUTPUT_LINK_FLIPPED_v5_1"/>
+  <child link="LONG_DRIVER_v2_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <mimic joint="B" multiplier="1" offset ="0"/>
+</joint>
+
+</robot>

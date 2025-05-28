@@ -12,21 +12,19 @@ Please install [urdf_launch](https://github.com/ros/urdf_launch) in the same wor
 
 ## Usage
 
-Run ```ros2 launch four_bar_tests display.launch.py model:=urdf/$$MODEL$$.urdf```
-
-If the model is in XACRO format remember to run ``` xacro model.xacro > model.urdf```  
+Run ```ros2 launch four_bar_tests display.launch.xml```
 
 ## Fusion Export Tips
 Export Fusion models to URDF using the [fusion2urdf](https://github.com/16cra40/fusion2urdf) tool.
+* Make sure that the origin of the base link is coincident with the origin of the assembly - otherwise joint rotations will be incorrect.
+* In ROS the z axis is positive so ensure that the model is oriented correctly before export.
 ### Before Export
-* Make sure base_link is specified
-* Make sure base_link is ungrounded
-* Make sure all components are unlinked
+* Make sure base_link is specified.
+* Make sure base_link is ungrounded.
+* Make sure all components are unlinked.
 
 ### After Export
-* One link duplicates so remove by trial and error
-* Rename the package in the exported XACRO to match the package
-
+* Use mimic joints to create the four bar kinematics.
 
 ## TODO
 * ~~Convert LEG_ASSEMBLY1 to Mimic joints~~
