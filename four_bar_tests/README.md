@@ -6,6 +6,8 @@ A ROS2 package for testing out a 4 bar linkage.
 
 ![Alt text](./images/Leg-Assembly.png "Qronk_leg in RVIZ")
 
+![Alt text](./images/Jazzy.png "Latest design running on ROS2 Jazzy")
+
 ## Dependencies
 
 Please install [urdf_launch](https://github.com/ros/urdf_launch) in the same workspace as four_bar_tests.
@@ -33,5 +35,5 @@ Export Fusion models to URDF using the [fusion2urdf](https://github.com/16cra40/
 * ~~Independent launch from urdf_launch~~
 * ~~Merge with main QRONK github~~
 * Import into Gazebo
-* Test on ROS2 Jazzy
+* ~~Test on ROS2 Jazzy~~
 * ~~Modify the python script - package name~~
