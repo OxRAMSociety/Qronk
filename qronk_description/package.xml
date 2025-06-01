@@ -13,11 +13,22 @@
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
 
+  <!-- For URDF, RViz2 -->
   <exec_depend>xacro</exec_depend>
   <exec_depend>rviz2</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+
+  <!-- For Gazebo Sim 8 -->
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>ros_gz_bridge</depend>
+  <depend>ros_gz_image</depend>
+  <depend>ros_gz_sim</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
