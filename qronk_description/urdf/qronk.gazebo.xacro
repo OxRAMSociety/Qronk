@@ -2,5 +2,15 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:macro name = "Qronk_gazebo">
 
+    <!-- For Gazebo Sim 8 (Harmonic) with ROS2 Jazzy -->
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+        <topic>joint_states</topic>
+        <!-- Add all the joints here -->
+        <!-- <joint_name>JOINT_NAME</joint_name> -->
+    </plugin>
+
+    <!-- plugin for IMU -->
+     
+
     </xacro:macro>
 </robot>
