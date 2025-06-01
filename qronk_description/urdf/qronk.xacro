@@ -14,16 +14,17 @@
         <link name="chassis" />
 
         <!-- Legs -->
-        <xacro:include filename="$(find qronk_description)/urdf/leg.xacro"/>
-        <xacro:Leg prefix="FRONT_RIGHT" />
+        <xacro:include filename="$(find qronk_description)/urdf/new_leg.xacro"/>
+        <xacro:leg side="front_right" />
 
-        <!-- ROS2 Control Tags -->
+        <!-- 
+        ROS2 Control Tags 
         <xacro:include filename="$(find qronk_description)/urdf/qronk.ros2_control.xacro"/>
         <xacro:Qronk_ros2_control prefix="FRONT_RIGHT"/>
 
-        <!-- Gazebo Tags -->
+        Gazebo Tags
         <xacro:include filename="$(find qronk_description)/urdf/qronk.gazebo.xacro"/>
-        <xacro:Qronk_gazebo/>
+        <xacro:Qronk_gazebo/> -->
 
     </xacro:macro>
 </robot>
