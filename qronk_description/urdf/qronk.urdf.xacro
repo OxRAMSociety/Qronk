@@ -3,5 +3,4 @@
 
     <xacro:include filename="$(find qronk_description)/urdf/qronk.xacro"/>
     <xacro:Qronk parent="base_link"/>
-
 </robot>
