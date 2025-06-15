@@ -34,11 +34,16 @@ def generate_launch_description():
     description_package = get_package_share_directory('qronk_description')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
-    # Load the SDF file from "description" package
-    sdf_file  =  os.path.join(description_package, 'urdf', 'qronk.urdf.xacro')
-    with open(sdf_file, 'r') as infp:
+    # Load the URDF file from "description" package
+    urdf_file  =  os.path.join(description_package, 'urdf', 'qronk.urdf.xacro')
+    with open(urdf_file, 'r') as infp:
         robot_desc = infp.read()
-    robot_desc = xacro.process_file(sdf_file).toprettyxml(indent='  ')
+    robot_desc = xacro.process_file(urdf_file).toprettyxml(indent='  ')
+
+    sdf_file  =  os.path.join(description_package, 'urdf', 'qronk.gazebo.xacro')
+    with open(sdf_file, 'r') as infp:
+        gazebo_desc = infp.read()
+    gazebo_desc = xacro.process_file(sdf_file).toprettyxml(indent='  ')
 
     # Setup to launch the simulator and Gazebo world
     gz_sim = IncludeLaunchDescription(
@@ -92,7 +97,7 @@ def generate_launch_description():
         executable="create",
         arguments=[
             "-name", "qronk",
-            "-topic", "/robot_description",
+            "-string", gazebo_desc,
         ],
         output="screen",
     )

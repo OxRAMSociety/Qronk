@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:macro name = "Qronk_gazebo">
+<robot name="qronk" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!--Spawn Model-->
+    <xacro:include filename="$(find qronk_description)/urdf/qronk.xacro"/>
+    <xacro:Qronk parent="world"/>
 
-    <!-- For Gazebo Sim 8 (Harmonic) with ROS2 Jazzy -->
     <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
         <topic>joint_states</topic>
         <!-- Add all the joints here -->
         <!-- <joint_name>JOINT_NAME</joint_name> -->
+        <joint_name>front_right_upper_leg</joint_name>
+        <joint_name>front_right_lower_leg</joint_name>
     </plugin>
 
-    <!-- plugin for IMU -->
-     
-
-    </xacro:macro>
 </robot>

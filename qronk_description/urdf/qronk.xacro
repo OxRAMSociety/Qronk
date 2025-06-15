@@ -4,18 +4,11 @@
 
         <!-- Parent (Depending on Program) -->
         <link name="${parent}" />
-        <joint name="${parent}_joint" type="fixed">
-            <parent link="${parent}" />
-            <child link="chassis" />
-            <origin xyz="0 0 0" rpy="0 0 0" />
-        </joint>
-
-        <!-- Chassis -->
-        <link name="chassis" />
 
         <!-- Legs -->
         <xacro:include filename="$(find qronk_description)/urdf/new_leg.xacro"/>
-        <xacro:leg side="front_right" />
+        <xacro:leg side="front_right" parent="${parent}"/>
+
 
         <!-- 
         ROS2 Control Tags 
