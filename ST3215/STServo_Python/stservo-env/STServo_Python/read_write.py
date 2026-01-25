@@ -5,20 +5,27 @@
 #
 # Available STServo model on this example : All models using Protocol STS
 # This example is tested with a STServo and an URT
+
+
+#Upload code to RPI then connect rPi via SSL to a computer then use that to run the scripts - they dont run automatically
 #
 
 import sys
 import os
 
+#Windows 
 if os.name == 'nt':
     import msvcrt
+    # Getch receives a single character from the keyboard 
     def getch():
         return msvcrt.getch().decode()
-        
+
+# Non windows        
 else:
     import sys, tty, termios
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)
+    # Getch receives a single character from the keyboard 
     def getch():
         try:
             tty.setraw(sys.stdin.fileno())
@@ -71,6 +78,7 @@ else:
     quit()
 
 while 1:
+    # ??
     print("Press any key to continue! (or press ESC to quit!)")
     if getch() == chr(0x1b):
         break
@@ -82,13 +90,16 @@ while 1:
     elif sts_error != 0:
         print("%s" % packetHandler.getRxPacketError(sts_error))
 
+    # Wait for STServo to reach goal position by reading its position continually until it stops moving
     while 1:
         # Read STServo present position
         sts_present_position, sts_present_speed, sts_comm_result, sts_error = packetHandler.ReadPosSpeed(STS_ID)
+        # Checks if packets have been received successfully
         if sts_comm_result != COMM_SUCCESS:
             print(packetHandler.getTxRxResult(sts_comm_result))
         else:
             print("[ID:%03d] GoalPos:%d PresPos:%d PresSpd:%d" % (STS_ID, sts_goal_position[index], sts_present_position, sts_present_speed))
+        # Raises error if packets not received successfully
         if sts_error != 0:
             print(packetHandler.getRxPacketError(sts_error))
 
