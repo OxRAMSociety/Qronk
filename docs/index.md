@@ -9,9 +9,9 @@ Welcome to the Qronk quadruped project.
 
 ## Sponsors
 
-![](../../assets/images/stjohns.jpg)
+![](../../assets/images/stjohns.png)
 
 {% include image-row.html 
-   images="../../assets/images/stjohns.jpg,../../assets/images/oxram`.jpg" 
+   images="../../assets/images/stjohns.png,../../assets/images/oxram.png" 
    height="100px" 
 %}
