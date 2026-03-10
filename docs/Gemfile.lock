@@ -256,6 +256,7 @@ DEPENDENCIES
   html-proofer (~> 5.2)
   jekyll-github-metadata (>= 2.15)
   jekyll-include-cache
+  jekyll-seo-tag
   jekyll-sitemap
   just-the-docs!
   rack
