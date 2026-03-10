@@ -2,3 +2,4 @@ title: Qronk
 description: A quadruped robot project
 remote_theme: just-the-docs/just-the-docs
 url: https://oxramsociety.github.io/Qronk
+baseurl: "/Qronk"

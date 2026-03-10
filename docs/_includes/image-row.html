@@ -1,5 +1,6 @@
 <div class="d-flex gap-3">
-  {% for img in include.images %}
+  {% assign image_list = include.images | split: "," %}
+  {% for img in image_list %}
   <img src="{{ img }}" style="height: {{ include.height | default: '200px' }}; width: auto; object-fit: cover;">
   {% endfor %}
 </div>
