@@ -1,0 +1,5 @@
+<div class="d-flex gap-3">
+  {% for img in include.images %}
+  <img src="{{ img }}" style="height: {{ include.height | default: '200px' }}; width: auto; object-fit: cover;">
+  {% endfor %}
+</div>
