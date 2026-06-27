@@ -38,7 +38,7 @@ DEVICENAME                  = '/dev/ttyACM0'    # Check which port is being used
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
 STS_MINIMUM_POSITION_VALUE  = 0             # SCServo will rotate between this value
-STS_MAXIMUM_POSITION_VALUE  = 200
+STS_MAXIMUM_POSITION_VALUE  = 2047
 STS_MOVING_SPEED            = 2400          # SCServo moving speed
 STS_MOVING_ACC              = 50            # SCServo moving acc
 
