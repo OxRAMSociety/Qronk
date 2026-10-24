@@ -2,3 +2,6 @@ __pycache__
 *.Identifier
 URDF_Exporter/.env
 URDF_Exporter/.vscode/
+ST3215/STServo_Python/stservo-env/Include/
+ST3215/STServo_Python/stservo-env/Scripts/
+ST3215/STServo_Python/stservo-env/Lib/
