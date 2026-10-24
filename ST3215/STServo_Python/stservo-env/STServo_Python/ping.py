@@ -32,7 +32,7 @@ from STservo_sdk import *                   # Uses STServo SDK library
 # Default setting
 STS_ID                  = 11                 # STServo ID : 1
 BAUDRATE                = 1000000           # STServo default baudrate : 1000000
-DEVICENAME              = '/dev/tty.usbmodem58750064121'    # Check which port is being used on your controller
+DEVICENAME              = '/dev/ttyACM0'    # Check which port is being used on your controller
                                             # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
 # Initialize PortHandler instance
@@ -66,6 +66,13 @@ print("Trying...")
 # Scan through range of STS_IDs
 for i in range(1, 100):
     model, comm, err = packetHandler.ping(i)
+
+    print(
+        "ID:", i,
+        "comm:", packetHandler.getTxRxResult(comm),
+        "err:", err
+    )
+
     if comm == COMM_SUCCESS:
         print("Found servo:", i)
 
