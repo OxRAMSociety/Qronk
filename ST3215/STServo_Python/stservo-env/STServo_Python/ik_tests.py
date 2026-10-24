@@ -42,6 +42,7 @@ L1 = 100
 
 portHandler = PortHandler(DEVICENAME)
 packetHandler = sts(portHandler)
+groupSyncRead = GroupSyncRead(packetHandler, STS_PRESENT_POSITION_L, 11)
 
 def port_setup():
     global portHandler, packetHandler
@@ -84,47 +85,49 @@ def convert_angles_leg_motion(theta0, theta1, shoulder_direction, float_directio
 
     return (shoulder_pos, float_pos)
 
+# Moves the motor to a position and halts program until it has finished moving
+def go_to_position(x, y):
+    (th0, th1) = convert_position_angle(x, y)
+    (a0, a1) = convert_angles_leg_motion(th0, th1, SHOULDER_DIRECT, FLOAT_DIRECT)
+
+    print("Shoulder pos: {}, Float pos: {}".format(a0, a1))
+
+    sts_addparam_result_shoulder = packetHandler.SyncWritePosEx(SHOULDER_ID, a0, STS_MOVING_SPEED, STS_MOVING_ACC)
+    sts_addparam_result_float = packetHandler.SyncWritePosEx(FLOAT_ID, a1, STS_MOVING_SPEED, STS_MOVING_ACC)
+
+    sts_comm_result = packetHandler.groupSyncWrite.txPacket()
+
+    # Clear syncwrite parameter storage
+    packetHandler.groupSyncWrite.clearParam()
+    time.sleep(0.002) #wait for servo status moving=1
+
+    while 1:
+        sts_addparam_result_shoulder = groupSyncRead.addParam(SHOULDER_ID)
+        sts_addparam_result_float = groupSyncRead.addParam(FLOAT_ID)
+
+        sts_comm_result = groupSyncRead.txRxPacket()
+
+        sts_last_moving = 0
+
+        for sts_id in (SHOULDER_ID, FLOAT_ID):
+            sts_data_result, sts_error = groupSyncRead.isAvailable(sts_id, STS_PRESENT_POSITION_L, 11)
+            
+            if sts_data_result == True and groupSyncRead.getData(sts_id, STS_MOVING, 1) == 1:
+                sts_last_moving = 1
+
+        groupSyncRead.clearParam()
+        if sts_last_moving==0:
+            break
+        
+
 if __name__ == "__main__":
     port_setup()
-    groupSyncRead = GroupSyncRead(packetHandler, STS_PRESENT_POSITION_L, 11)
-
+    
     for count in range(6):
         # sts_addparam_result_shoulder = packetHandler.SyncWritePosEx(SHOULDER_ID, 2047 + count*100*SHOULDER_DIRECT, STS_MOVING_SPEED, STS_MOVING_ACC)
         # sts_addparam_result_float = packetHandler.SyncWritePosEx(FLOAT_ID,  2047 - count*100, STS_MOVING_SPEED, STS_MOVING_ACC)
-
-        (th0, th1) = convert_position_angle(60 - (count*5), 100)
-        (a0, a1) = convert_angles_leg_motion(th0, th1, SHOULDER_DIRECT, FLOAT_DIRECT)
-
-        print("Shoulder pos: {}, Float pos: {}".format(a0, a1))
-
-        sts_addparam_result_shoulder = packetHandler.SyncWritePosEx(SHOULDER_ID, a0, STS_MOVING_SPEED, STS_MOVING_ACC)
-        sts_addparam_result_float = packetHandler.SyncWritePosEx(FLOAT_ID, a1, STS_MOVING_SPEED, STS_MOVING_ACC)
-
-        sts_comm_result = packetHandler.groupSyncWrite.txPacket()
-
-        # Clear syncwrite parameter storage
-        packetHandler.groupSyncWrite.clearParam()
-        time.sleep(0.002) #wait for servo status moving=1
-
-        while 1:
-            sts_addparam_result_shoulder = groupSyncRead.addParam(SHOULDER_ID)
-            sts_addparam_result_float = groupSyncRead.addParam(FLOAT_ID)
-
-            sts_comm_result = groupSyncRead.txRxPacket()
-
-            sts_last_moving = 0
-
-            for sts_id in (SHOULDER_ID, FLOAT_ID):
-                sts_data_result, sts_error = groupSyncRead.isAvailable(sts_id, STS_PRESENT_POSITION_L, 11)
-
-                if sts_data_result == True and groupSyncRead.getData(sts_id, STS_MOVING, 1) == 1:
-                    sts_last_moving = 1
-
-            groupSyncRead.clearParam()
-            if sts_last_moving==0:
-                time.sleep(1)
-                break
-                
+        go_to_position(60 - (count*10), 100)
+        time.sleep(0.01)       
 
     # Close port
     portHandler.closePort()
